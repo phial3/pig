@@ -66,15 +66,6 @@ services:
     hostname: pig-monitor
     image: pig-monitor
 
-  pig-sentinel:
-    build:
-      context: ./pig-visual/pig-sentinel-dashboard
-    restart: always
-    image: pig-sentinel
-    container_name: pig-sentinel
-    ports:
-      - 5003:5003
-
   pig-codegen:
     build:
       context: ./pig-visual/pig-codegen
@@ -83,12 +74,9 @@ services:
     hostname: pig-codegen
     image: pig-codegen
 
-  pig-job:
+  pig-daemon-quartz:
     build:
-      context: ./pig-visual/pig-xxl-job-admin
+      context: ./pig-visual/pig-quartz
     restart: always
-    container_name: pig-job
-    hostname: pig-job
-    image: pig-job
-    ports:
-      - 5004:5004
+    image: pig-quartz
+    container_name: pig-quartz
