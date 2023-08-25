@@ -246,8 +246,8 @@ CREATE TABLE `sys_log` (
   `log_type` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0' COMMENT '日志类型',
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '日志标题',
   `service_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '服务ID',
-  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ' ' COMMENT '创建人',
-  `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ' ' COMMENT '修改人',
+  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT ' ' COMMENT '创建人',
+  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT ' ' COMMENT '修改人',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remote_addr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '远程地址',
@@ -264,15 +264,6 @@ CREATE TABLE `sys_log` (
   KEY `sys_log_create_date` (`create_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='日志表';
 
--- ----------------------------
--- Records of sys_log
--- ----------------------------
-BEGIN;
-INSERT INTO `sys_log` VALUES (1677218733317345282, '0', '更新角色菜单', NULL, 'anonymousUser', ' ', '2023-07-07 15:31:22', NULL, NULL, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36', '/role/menu', 'PUT', '', 46, '0', NULL);
-INSERT INTO `sys_log` VALUES (1677218768511750146, '0', '更新角色菜单', NULL, 'anonymousUser', ' ', '2023-07-07 15:31:30', NULL, NULL, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36', '/role/menu', 'PUT', '', 59, '0', NULL);
-INSERT INTO `sys_log` VALUES (1677218849554092033, '0', '更新角色菜单', NULL, 'anonymousUser', ' ', '2023-07-07 15:31:50', NULL, NULL, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36', '/role/menu', 'PUT', '', 45, '0', NULL);
-INSERT INTO `sys_log` VALUES (1677218871825846274, '0', '更新角色菜单', NULL, 'anonymousUser', ' ', '2023-07-07 15:31:55', NULL, NULL, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36', '/role/menu', 'PUT', '', 9, '0', NULL);
-COMMIT;
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -347,10 +338,6 @@ INSERT INTO `sys_menu` VALUES (2400, '终端管理', 'client', NULL, '/admin/cli
 INSERT INTO `sys_menu` VALUES (2401, '客户端新增', NULL, 'sys_client_add', NULL, 2400, '1', '1', 1, '0', NULL, '1', ' ', '2018-05-15 21:35:18', ' ', '2021-05-25 03:12:55', '0');
 INSERT INTO `sys_menu` VALUES (2402, '客户端修改', NULL, 'sys_client_edit', NULL, 2400, NULL, '1', 1, '0', NULL, '1', ' ', '2018-05-15 21:37:06', ' ', '2021-05-25 03:12:55', '0');
 INSERT INTO `sys_menu` VALUES (2403, '客户端删除', NULL, 'sys_client_del', NULL, 2400, NULL, '1', 1, '0', NULL, '1', ' ', '2018-05-15 21:39:16', ' ', '2021-05-25 03:12:55', '0');
-INSERT INTO `sys_menu` VALUES (2500, '密钥管理', 'key', NULL, '/admin/social/index', 2000, 'iconfont icon-quanxian', '1', 10, '0', NULL, '0', '', '2018-01-20 13:17:19', 'admin', '2023-02-16 15:26:16', '0');
-INSERT INTO `sys_menu` VALUES (2501, '密钥新增', NULL, 'sys_social_details_add', NULL, 2500, '1', '1', 0, '0', NULL, '1', ' ', '2018-05-15 21:35:18', ' ', '2020-03-24 08:57:19', '0');
-INSERT INTO `sys_menu` VALUES (2502, '密钥修改', NULL, 'sys_social_details_edit', NULL, 2500, '1', '1', 1, '0', NULL, '1', ' ', '2018-05-15 21:35:18', ' ', '2020-03-24 08:57:19', '0');
-INSERT INTO `sys_menu` VALUES (2503, '密钥删除', NULL, 'sys_social_details_del', NULL, 2500, '1', '1', 2, '0', NULL, '1', ' ', '2018-05-15 21:35:18', ' ', '2020-03-24 08:57:23', '0');
 INSERT INTO `sys_menu` VALUES (2600, '令牌管理', 'token', NULL, '/admin/token/index', 2000, 'ele-Key', '1', 11, '0', NULL, '0', '', '2018-09-04 05:58:41', 'admin', '2023-02-16 15:28:28', '0');
 INSERT INTO `sys_menu` VALUES (2601, '令牌删除', NULL, 'sys_token_del', NULL, 2600, NULL, '1', 1, '0', NULL, '1', ' ', '2018-09-04 05:59:50', ' ', '2020-03-24 08:57:24', '0');
 INSERT INTO `sys_menu` VALUES (2800, 'Quartz管理', 'quartz', NULL, '/daemon/job-manage/index', 2000, 'ele-AlarmClock', '1', 8, '0', NULL, '0', '', '2018-01-20 13:17:19', 'admin', '2023-02-16 15:25:06', '0');
@@ -362,12 +349,6 @@ INSERT INTO `sys_menu` VALUES (2850, '任务开始', NULL, 'job_sys_job_start_jo
 INSERT INTO `sys_menu` VALUES (2860, '任务刷新', NULL, 'job_sys_job_refresh_job', NULL, 2800, '1', '1', 0, '0', NULL, '1', ' ', '2018-05-15 21:35:18', ' ', '2020-03-24 08:57:30', '0');
 INSERT INTO `sys_menu` VALUES (2870, '执行任务', NULL, 'job_sys_job_run_job', NULL, 2800, '1', '1', 0, '0', NULL, '1', ' ', '2019-08-08 15:35:18', ' ', '2020-03-24 08:57:31', '0');
 INSERT INTO `sys_menu` VALUES (2871, '导出', NULL, 'job_sys_job_export', NULL, 2800, NULL, '1', 0, '0', '0', '1', 'admin', '2023-03-06 15:26:13', ' ', NULL, '0');
-INSERT INTO `sys_menu` VALUES (2900, '国际化管理', 'i18n', NULL, '/admin/i18n/index', 2000, 'iconfont icon-zhongyingzhuanhuan', '1', 8, '0', NULL, '0', '', NULL, 'admin', '2023-02-16 15:25:18', '0');
-INSERT INTO `sys_menu` VALUES (2901, '系统表-国际化查看', NULL, 'sys_i18n_view', NULL, 2900, '1', '1', 0, '0', NULL, '1', ' ', NULL, ' ', NULL, '0');
-INSERT INTO `sys_menu` VALUES (2902, '系统表-国际化新增', NULL, 'sys_i18n_add', NULL, 2900, '1', '1', 1, '0', NULL, '1', ' ', NULL, ' ', NULL, '0');
-INSERT INTO `sys_menu` VALUES (2903, '系统表-国际化修改', NULL, 'sys_i18n_edit', NULL, 2900, '1', '1', 2, '0', NULL, '1', ' ', NULL, ' ', NULL, '0');
-INSERT INTO `sys_menu` VALUES (2904, '系统表-国际化删除', NULL, 'sys_i18n_del', NULL, 2900, '1', '1', 3, '0', NULL, '1', ' ', NULL, ' ', NULL, '0');
-INSERT INTO `sys_menu` VALUES (2905, '导入导出', NULL, 'sys_i18n_export', NULL, 2900, '1', '1', 3, '0', NULL, '1', ' ', NULL, ' ', NULL, '0');
 INSERT INTO `sys_menu` VALUES (2906, '文件管理', 'file', NULL, '/admin/file/index', 2000, 'ele-Files', '1', 6, '0', NULL, '0', '', '2019-06-25 12:44:46', 'admin', '2023-02-16 15:24:42', '0');
 INSERT INTO `sys_menu` VALUES (2907, '删除文件', NULL, 'sys_file_del', NULL, 2906, NULL, '1', 1, '0', NULL, '1', ' ', '2019-06-25 13:41:41', ' ', '2020-03-24 08:58:42', '0');
 INSERT INTO `sys_menu` VALUES (4000, '系统监控', 'monitor', NULL, '/daemon', -1, 'iconfont icon-shuju', '1', 3, '0', '0', '0', 'admin', '2023-02-06 20:20:47', 'admin', '2023-02-23 20:01:07', '0');
@@ -577,10 +558,6 @@ INSERT INTO `sys_role_menu` VALUES (1, 2400);
 INSERT INTO `sys_role_menu` VALUES (1, 2401);
 INSERT INTO `sys_role_menu` VALUES (1, 2402);
 INSERT INTO `sys_role_menu` VALUES (1, 2403);
-INSERT INTO `sys_role_menu` VALUES (1, 2500);
-INSERT INTO `sys_role_menu` VALUES (1, 2501);
-INSERT INTO `sys_role_menu` VALUES (1, 2502);
-INSERT INTO `sys_role_menu` VALUES (1, 2503);
 INSERT INTO `sys_role_menu` VALUES (1, 2600);
 INSERT INTO `sys_role_menu` VALUES (1, 2601);
 INSERT INTO `sys_role_menu` VALUES (1, 2800);
@@ -592,12 +569,6 @@ INSERT INTO `sys_role_menu` VALUES (1, 2850);
 INSERT INTO `sys_role_menu` VALUES (1, 2860);
 INSERT INTO `sys_role_menu` VALUES (1, 2870);
 INSERT INTO `sys_role_menu` VALUES (1, 2871);
-INSERT INTO `sys_role_menu` VALUES (1, 2900);
-INSERT INTO `sys_role_menu` VALUES (1, 2901);
-INSERT INTO `sys_role_menu` VALUES (1, 2902);
-INSERT INTO `sys_role_menu` VALUES (1, 2903);
-INSERT INTO `sys_role_menu` VALUES (1, 2904);
-INSERT INTO `sys_role_menu` VALUES (1, 2905);
 INSERT INTO `sys_role_menu` VALUES (1, 2906);
 INSERT INTO `sys_role_menu` VALUES (1, 2907);
 INSERT INTO `sys_role_menu` VALUES (1, 4000);
